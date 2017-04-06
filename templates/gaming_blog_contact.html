@@ -24,6 +24,8 @@
             <p class="intro">Welcome to the Blogging of Jack. This is my own personal website where I will be posting about games I've played, sharing gameplay and my own general opinions on the gaming scene.</p>
         </div>
     </div>
+    <!--So to demonstrate flask and also more html functions I created a contact me page for people to reach me by. This page uses the jinja2 template to 
+    serve up information to the user that they have implemented.-->
     <nav class="navbar navbar-fluid" id="nav">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
@@ -39,35 +41,45 @@
             </ul>
         </div>
     </nav>
-    <!--Similar to the videos featured in the second blog post. I intend to put my own gameplay here one day. The iframes are retrevied from YouTube and are
-    responsive due to bootsrap.-->
+    <!--So to demonstrate flask and also more html functions I created a contact me page for people to reach me by. This page uses the jinja2 template to 
+    serve up information to the user that they have implemented.-->
     <div class="container-fluid" style="padding-left: 8%; padding-right: 8%;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="articles">
-            <div class="article1">
-                <article class="post1">
-                     <h2>Videos</h2>
-                     <p>Here I will be posting videos of gameplay from games that I have been playing! Check back in the future to see more!</p>
-                     <p>For the time being I have added some trailers for games that I am excited for!</p>
-                     <h2>Spiderman</h2><br>
-                     <div class="embed-responsive embed-responsive-4by3"><iframe width="560" height="315" src="https://www.youtube.com/embed/3R2uvJqWeVg" frameborder="0" allowfullscreen class="center-block"></iframe></div>
-                     <br>
-                     <h2>Death Stranding</h2><br>
-                     <div class="embed-responsive embed-responsive-4by3"><iframe width="560" height="315" src="https://www.youtube.com/embed/i2nuHEGhwiw" frameborder="0" allowfullscreen class="center-block"></iframe></div>
-                     <br>
-                     <h2>Red Dead Redemption 2</h2><br>
-                     <div class="embed-responsive embed-responsive-4by3"><iframe width="560" height="315" src="https://www.youtube.com/embed/gmA6MrX81z4" frameborder="0" allowfullscreen class="center-block"></iframe></div>
-                     <br>
-                     <h2>Injustice 2</h2><br>
-                     <div class="embed-responsive embed-responsive-4by3"><iframe width="560" height="315" src="https://www.youtube.com/embed/vPOZuEa9dso" frameborder="0" allowfullscreen class="center-block"></iframe></div>
-                     <br>
-                     <h2>Middle Earth: Shadow of War</h2><br>
-                     <div class="embed-responsive embed-responsive-4by3"><iframe width="560" height="315" src="https://www.youtube.com/embed/BgcFxCGP4fw" frameborder="0" allowfullscreen class="center-block"></iframe></div>
-                     <br>
+        <div class="article1">
+            <article class="post1">
+        <h2>Contact Me Here</h2>
+        <p>Fill out these forms to contact me. I will respond as soon as I can!</p>
+        <!--This is part of flask, it returns the information that the user has entered into the forms. The full implementation of flask would see this being saved to a database.-->
+                {% if name %}
+                    <p>Thank you for your submission {{ name }}</p>
+                    <p>Your comments are: {{ comments }}</p>
+                    <p>I will get back shortly to you by the email adress: {{ email }}</p>
+                {% endif %}
+        <form action="/gaming_blog_contact.html" method="post">
+            <label for="nameId">First Name:</label><br><!--Name field-->
+            <input type="text" name="name" id="nameId">
+            <br>
+            Last Name:<br>
+            <input type="text" name="lastname"><!--Last name field-->
+            <br>
+            Message:<br>
+            <textarea rows="6" name="comments" cols="80" id="comments"><!--Text box for the message-->
+            </textarea>
+            <br>
+            <br>
+            Email:<br>
+            <input type="email" name="email" id="email"><!--Email field-->
+            <br>
+           
+            <input type="submit" value="Submit"><!--The submit button for the user-->
 
-                </article>
-            </div>
+        </form>
+        </article>
+
         </div>
-
+        </div>
+        </div>
         </div>
         <button onclick="scrollWin()" class="top">Return to Top</button>
     <script>
