@@ -53,7 +53,5 @@ game[15] = "The Scout, Team Fortress 2";
 
 index = Math.floor(Math.random() * quotes.length);
 
-document.write("<DL>\n");
 document.write("<DT>" + "\"" + quotes[index] + "\"</DT>\n");
 document.write("<DD>" + "-- " + game[index] + "</DT>\n");
-document.write("</DL>\n");
